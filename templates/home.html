@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tenant and Landlord Expert System</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: linear-gradient(135deg, #6dd5ed, #2193b0);
+            font-family: 'Segoe UI', sans-serif;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: #ffffffdd;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 2px solid #8a2be2;
+            width: 320px;
+        }
+        label {
+            margin-bottom: 20px;
+            font-size: 20px;
+            color: #333;
+            align-self: flex-start;
+        }
+        input[type="radio"] {
+            appearance: none;
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            margin-right: 5px;
+            transform: scale(1.3);
+            border-radius: 50%;
+            width: 1em;
+            height: 1em;
+            border: 2px solid #8a2be2;
+            outline: none;
+            background-color: white;
+            cursor: pointer;
+            position: relative;
+        }
+        input[type="radio"]:checked::before {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 0.5em;
+            height: 0.5em;
+            border-radius: 50%;
+            background-color: #8a2be2;
+        }
+        input[type="radio"]:checked {
+            box-shadow: 0 0 8px 2px #8a2be2;
+        }
+        input[type="text"], input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            font-size: 18px;
+            border-radius: 8px;
+            transition: border-color 0.3s;
+        }
+        input[type="text"]:focus {
+            border-color: #2193b0;
+            box-shadow: 0 0 8px #2193b0;
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <form action="/questions" method="post">
+        <label>Choose your role:</label>
+        <label for="tenant" style="display: block;">
+            <input type="radio" name="role" id="tenant" value="tenant" checked>
+            Tenant
+        </label>
+        <label for="landlord" style="display: block;">
+            <input type="radio" name="role" id="landlord" value="landlord">
+            Landlord
+        </label>
+        <br>
+        <label for="question">Enter your question:</label>
+        <input type="text" name="question" id="question">
+        <br><br>
+        <input type="submit" value="Get Answer">
+    </form>
+</body>
+</html>

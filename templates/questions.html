@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Tenant and Landlord Expert System</title>
+    <style>
+        html, body {
+            height: 100%; /* Full height for the body */
+            margin: 0; /* Remove default margin */
+            padding: 0; /* Remove default padding */
+            display: flex;
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom, #6dd5ed, #2193b0);
+            color: #333;
+        }
+        .container {
+            width: auto; /* Width depends on content */
+            max-width: 600px; /* Maximum width */
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+            border: 2px solid #8a2be2; /* Purple border */
+        }
+        h1, p {
+            font-size: 22px; /* Increased font size */
+        }
+        a.button {
+            display: inline-block;
+            background-color: #4CAF50;
+            color: #fff;
+            text-decoration: none;
+            padding: 12px 24px; /* Increased padding */
+            border-radius: 8px;
+            font-size: 18px; /* Increased font size */
+            transition: background-color 0.3s;
+        }
+        a.button:hover {
+            background-color: #45a049;
+        }
+        .suggestions-box {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 5px;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Question:</h1>
+        <p>{{ question }}</p>
+        <h1>Answer:</h1>
+        {% if answer %}
+            <p>{{ answer }}</p>
+        {% else %}
+            <p>No answer found. Here are some related questions:</p>
+            <div class="suggestions-box">
+                <ul>
+                    {% for suggestion in suggestions %}
+                        <li>{{ suggestion }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+        <a href="/" class="button">Go back to home page</a>
+    </div>
+</body>
+</html>
